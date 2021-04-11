@@ -6,6 +6,9 @@ import { ApiAuthorizationGuard } from './core/guards/authorization.guard';
 import { RolesGuard } from './core/guards/roles.guard';
 import { LoggingInterceptor } from './core/interceptors/logging.interceptor';
 import { DeprecatedGuard } from './core/guards/deprecated.guard';
+import { Logger } from '@nestjs/common';
+
+const logger = new Logger('KarrotREST');
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
@@ -27,8 +30,8 @@ async function bootstrap() {
 
   // Swagger Documentation Init
   const options = new DocumentBuilder()
-    .setTitle('Documentation | Best API')
-    .setDescription('The Best API documentation')
+    .setTitle('Documentation | Karrot API')
+    .setDescription('The Karrot API documentation')
     .setVersion('1.0')
     .addApiKey({ type: 'apiKey', name: 'x-key', in: 'header' }, 'x-key')
     .addBearerAuth({ type: 'http', scheme: 'bearer' }, 'authenticate')
@@ -36,7 +39,7 @@ async function bootstrap() {
 
   const document = SwaggerModule.createDocument(app, options);
   SwaggerModule.setup('docs', app, document);
-  await app.listen(configService.get('http.port'));
+  await app.listen(configService.get('http.port'), () => logger.verbose('REST API is listening...'));
 }
 
 bootstrap().then();

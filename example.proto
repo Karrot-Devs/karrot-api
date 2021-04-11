@@ -1,0 +1,18 @@
+//example/example.proto
+
+syntax = "proto3";
+
+package example;
+import "google/protobuf/empty.proto";
+
+service ExampleService {
+  rpc GetExample (google.protobuf.Empty) returns (Example) {}
+}
+
+message GetExampleParams {
+
+}
+
+message Example {
+  string value = 1;
+}

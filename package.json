@@ -8,7 +8,8 @@
   "scripts": {
     "prebuild": "rimraf dist",
     "build": "nest build",
-    "create-mod": "chmod +x scripts/create-mod.sh && ./scripts/create-mod.sh",
+    "create-mod": "bash ./scripts/create-mod.sh",
+    "fetch-proto": "bash ./scripts/fetch-proto.sh",
     "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
     "start": "nest start",
     "start:dev": "nest start --watch",
@@ -22,13 +23,16 @@
     "test:e2e": "jest --config ./test/jest-e2e.json"
   },
   "dependencies": {
+    "@grpc/proto-loader": "^0.6.0",
     "@nestjs/common": "^7.5.1",
     "@nestjs/config": "^0.6.1",
     "@nestjs/core": "^7.5.1",
+    "@nestjs/microservices": "^7.6.15",
     "@nestjs/platform-express": "^7.5.1",
     "@nestjs/schedule": "^0.4.1",
     "@nestjs/swagger": "^4.7.9",
     "@nestjs/typeorm": "^7.1.5",
+    "grpc": "^1.24.6",
     "js-yaml": "^3.14.1",
     "pg": "^8.5.1",
     "reflect-metadata": "^0.1.13",

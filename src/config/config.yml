@@ -1,11 +1,11 @@
-http: 
+http:
   port: 8000
 
-db: 
-  postgres: 
-    db_name: testdb
+db:
+  postgres:
+    db_name: testnest
     password: 123456
-    user: postgres
+    user: alpha-n1khil
     port: 5432
     host: localhost
 

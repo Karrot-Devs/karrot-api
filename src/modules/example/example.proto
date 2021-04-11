@@ -1,0 +1,17 @@
+//example/example.proto
+
+syntax = "proto3";
+
+package example;
+
+service ExampleService {
+  rpc GetExample (GetExampleParams) returns (Example) {}
+}
+
+message GetExampleParams {
+
+}
+
+message Example {
+  string value = 1;
+}
