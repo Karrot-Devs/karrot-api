@@ -3,9 +3,9 @@ http:
 
 db:
   postgres:
-    db_name: testnest
+    db_name: testdb
     password: 123456
-    user: alpha-n1khil
+    user: postgres
     port: 5432
     host: localhost
 
