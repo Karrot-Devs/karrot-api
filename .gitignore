@@ -35,3 +35,7 @@ lerna-debug.log*
 
 # Local Config Files
 src/config/config.yml
+
+
+# Proto
+**/*.proto
