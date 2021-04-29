@@ -4,5 +4,6 @@
   "compilerOptions": {
     "assets": ["**/*.yml", "**/*.proto"]
   },
+  "entryFile": "karrot-api/src/main",
   "watchAssets": true
 }

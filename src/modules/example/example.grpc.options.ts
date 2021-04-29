@@ -1,10 +1,13 @@
 import { ClientOptions, Transport } from '@nestjs/microservices';
-import { join } from 'path';
+import { join, resolve } from 'path';
 
 export const EXAMPLE_GRPC_OPTIONS: ClientOptions = {
   transport: Transport.GRPC,
   options: {
     package: 'example',
-    protoPath: join(__dirname, 'example.proto'),
+    protoPath: join(
+      resolve(__dirname, '../../../../../../common/proto/'),
+      'example.proto',
+    ),
   },
 };

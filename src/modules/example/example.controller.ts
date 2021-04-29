@@ -3,7 +3,9 @@ import { IExampleService } from './example.service.interface';
 import { Client, ClientGrpc } from '@nestjs/microservices';
 import { EXAMPLE_GRPC_OPTIONS } from './example.grpc.options';
 import { ApiBearerAuth, ApiSecurity, ApiTags } from '@nestjs/swagger';
-import { ExampleService } from './example.service';
+import { ExampleResponseDto } from '../../../../common/dto/example.dto';
+import { Observable } from 'rxjs';
+// import { ExampleService } from './example.service';
 
 @ApiTags('example')
 @ApiSecurity('x-key')
@@ -15,14 +17,14 @@ export class ExampleController implements OnModuleInit {
   @Client(EXAMPLE_GRPC_OPTIONS)
   private client: ClientGrpc;
 
-  constructor() {}
-
   onModuleInit(): any {
-    this.exampleService = this.client.getService<IExampleService>('ExampleService');
+    this.exampleService = this.client.getService<IExampleService>(
+      'ExampleService',
+    );
   }
 
   @Get()
-  getExample() {
+  getExample(): Observable<ExampleResponseDto> {
     return this.exampleService.getExample({});
   }
 }

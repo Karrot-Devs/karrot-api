@@ -8,10 +8,8 @@ import { ScheduleModule } from '@nestjs/schedule';
 import { CorsMiddleware } from './shared/middlewares/cors.middleware';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { ExampleModule } from './modules/example/example.module';
-import configuration from './config/configuration';
-import TypeOrmConfigService from './config/database.config';
-import { ClientsModule, Transport } from '@nestjs/microservices';
-import { join } from 'path';
+import configuration from '../../common/config/configuration';
+import TypeOrmConfigService from '../../common/config/database.config';
 
 @Module({
   imports: [
